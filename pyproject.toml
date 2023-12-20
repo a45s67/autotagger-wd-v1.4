@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "autotagger-wd-v1-4"
+version = "0.1.0"
+description = ""
+authors = ["Fish Yu <b45s67@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "autotagger_wd_v1"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+fastapi = "^0.105.0"
+gunicorn = "^21.2.0"
+onnxruntime = "^1.16.3"
+uvicorn = "^0.25.0"
+pillow = "^10.1.0"
+python-multipart = "^0.0.6"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
