@@ -15,6 +15,7 @@ onnxruntime = "^1.16.3"
 uvicorn = "^0.25.0"
 pillow = "^10.1.0"
 python-multipart = "^0.0.6"
+redis = {extras = ["hiredis"], version = "^5.0.1"}
 
 
 [build-system]
