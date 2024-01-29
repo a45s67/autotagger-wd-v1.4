@@ -1,0 +1,13 @@
+version: "1.0"
+
+name: autotagger-wd
+
+services:
+  autotagger:
+    image: wd-autotagger
+    ports:
+      - 5000:5000
+  redis:
+    image: redis/redis-stack:latest
+
+      

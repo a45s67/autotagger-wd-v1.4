@@ -31,7 +31,7 @@ class Evaluate(BaseModel):
 
 app = FastAPI()
 
-rds = redis.Redis(host='localhost', port=6379, db=0)
+rds = redis.Redis(host='redis', port=6379, db=0)
 rds.flushall()
 
 
