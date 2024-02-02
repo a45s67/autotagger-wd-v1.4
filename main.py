@@ -32,6 +32,7 @@ class Evaluate(BaseModel):
 app = FastAPI()
 
 rds = redis.Redis(host='localhost', port=6379, db=0)
+rds.flushall()
 
 
 @app.get("/")
@@ -65,7 +66,7 @@ async def evaluate(form_data: Evaluate = Depends()):
         print(f"pred size = {pred.shape}")
         match_tags = tag_pool[np.argwhere(pred[0] > threshold).squeeze()]['name']
         match_score = pred[0][pred[0] > threshold]
-        tags_info = {str(tag): float(score) for tag, score in zip(match_tags, match_score)}
+        tags_info = {tag.decode('utf-8'): float(score) for tag, score in zip(match_tags, match_score)}
         results.append({"filename": file.filename, "tags": tags_info})
         rds.set(img_sha256, json.dumps(tags_info))
     print(results)
